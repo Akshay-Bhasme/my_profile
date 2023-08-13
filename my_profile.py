@@ -32,7 +32,7 @@ def st_display_pdf(images,width=400, height=600):
     st.write(f"Download My Resume here [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme.pdf)")
     for i, image in enumerate(images):
         st.image(image, caption=f"Page {i+1}", use_column_width=True)
-    
+    st.write(f"Download My Resume here [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme.pdf)")
     #response = requests.get(pdf_url)
     #pdf_data = response.content
     #pdf_b64 = base64.b64encode(pdf_data).decode("utf-8")
