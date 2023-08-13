@@ -7,6 +7,8 @@
 import streamlit as st
 from PIL import Image
 import base64
+import requests
+import io
 
 # Function to display the resume
 def st_display_pdf(pdf_url):
