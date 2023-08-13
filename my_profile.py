@@ -19,7 +19,7 @@ def st_display_pdf(pdf_url):
     pdf_data = response.content
     
     # Embed the PDF using base64 encoding
-    st.write(f'<embed src="data:application/pdf;base64,{base64.b64encode(pdf_data).decode("utf-8")}" width="800" height="600" type="application/pdf">')
+    st.write(f'<embed src="data:application/pdf;base64,{base64.b64encode(pdf_data).decode("utf-8")}" width="700" height="1000" type="application/pdf">')
     #with open(pdf_file,"rb") as f:
     #    base64_pdf = base64.b64encode(f.read()).decode('utf-8')
     #pdf_display = F'<embed src=”data:application/pdf;base64,{base64_pdf}” width=”700″ height=”1000″ type=”application/pdf”>'
