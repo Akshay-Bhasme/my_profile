@@ -30,7 +30,9 @@ def pdf_github_to_images(pdf_github_url):
 def st_display_pdf(images,width=400, height=600):
     st.title("Career Snapshot")
     st.write(f"Download My Resume here [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme.pdf)")
-    st.write(f"Email: akshaybhasme30@gmail.com ","                ",f"Mobile No: (+91 7972014093)")
+    column_width = st.sidebar.empty().info(" ")
+    st.write(f"Email: akshaybhasme30@gmail.com ",f"Mobile No: (+91 7972014093)")
+    column_width.empty()
     #st.write()
     st.write(f"GitHub: (https://github.com/Akshay-Bhasme)")
     st.write(f"LinkedIn: (www.linkedin.com/in/akshaybhasme30)")
