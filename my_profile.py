@@ -27,7 +27,7 @@ def pdf_github_to_images(pdf_github_url):
     return images
     
 # Function to display the resume
-def st_display_pdf(images,width=100, height=150):
+def st_display_pdf(images,width=1000, height=2050):
     st.title("My Resume")
     st.markdown(f"Download [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme.pdf)")
     for i, image in enumerate(images):
