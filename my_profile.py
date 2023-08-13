@@ -31,7 +31,7 @@ def st_display_pdf(images,width=1000, height=2050):
     st.title("My Resume")
     st.markdown(f"Download [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme.pdf)")
     for i, image in enumerate(images):
-        resized_image = image.resize((width, height))
+        resized_image = image.resize((width, height),Image.LANCZOS)
         st.image(resized_image, caption=f"Page {i+1}", use_column_width=True)
     
     #response = requests.get(pdf_url)
