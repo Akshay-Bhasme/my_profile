@@ -10,10 +10,12 @@ import base64
 
 # Function to display the resume
 def st_display_pdf(pdf_file):
-    with open(pdf_file,"rb") as f:
-        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-    pdf_display = F'<embed src=”data:application/pdf;base64,{base64_pdf}” width=”700″ height=”1000″ type=”application/pdf”>'
-    st.markdown(pdf_display, unsafe_allow_html=True)
+    st.title("My Resume")
+    st.markdown(f"Download [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme.pdf)")
+    #with open(pdf_file,"rb") as f:
+    #    base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+    #pdf_display = F'<embed src=”data:application/pdf;base64,{base64_pdf}” width=”700″ height=”1000″ type=”application/pdf”>'
+    #st.markdown(pdf_display, unsafe_allow_html=True)
     
 # Function to display your work/projects
 #def display_work():
@@ -38,7 +40,7 @@ def main():
     choice = st.sidebar.radio("Go to", pages)
     
     if choice == "Resume":
-        st_display_pdf('CV_Akshay_Bhasme.pdf')
+        st_display_pdf('https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme.pdf')
 
 if __name__ == "__main__":
     main()
