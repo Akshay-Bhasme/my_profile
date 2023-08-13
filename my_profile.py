@@ -28,8 +28,8 @@ def pdf_github_to_images(pdf_github_url):
     
 # Function to display the resume
 def st_display_pdf(images,width=400, height=600):
-    st.title("My Resume")
-    st.subtitle(f"Download My Resume [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme.pdf)")
+    st.title("Career Snapshot")
+    st.write(f"Download My Resume here [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme.pdf)")
     for i, image in enumerate(images):
         st.image(image, caption=f"Page {i+1}", use_column_width=True)
     
