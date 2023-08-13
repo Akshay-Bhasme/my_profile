@@ -13,7 +13,10 @@ def st_display_pdf(pdf_url):
     st.title("My Resume")
     st.markdown(f"Download [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme.pdf)")
     
-    pdf_data = open(pdf_url, "rb").read()
+    response = requests.get(pdf_url)
+    pdf_data = response.content
+    
+    # Embed the PDF using base64 encoding
     st.write(f'<embed src="data:application/pdf;base64,{base64.b64encode(pdf_data).decode("utf-8")}" width="800" height="600" type="application/pdf">')
     #with open(pdf_file,"rb") as f:
     #    base64_pdf = base64.b64encode(f.read()).decode('utf-8')
