@@ -20,7 +20,7 @@ def pdf_github_to_images(pdf_github_url):
     pdf_document = fitz.open(stream=pdf_bytes, filetype="pdf")
     for page_num in range(pdf_document.page_count):
         page = pdf_document.load_page(page_num)
-        image = page.get_pixmap(matrix=fitz.Matrix(2, 2))  # Increase the scale factor for larger images
+        image = page.get_pixmap(matrix=fitz.Matrix(1, 1))  # Increase the scale factor for larger images
         pil_image = Image.frombytes("RGB", [image.width, image.height], image.samples)
         images.append(pil_image)
     pdf_document.close()
