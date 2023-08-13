@@ -16,38 +16,35 @@ def st_display_pdf(pdf_file):
     st.markdown(pdf_display, unsafe_allow_html=True)
     
 # Function to display your work/projects
-def display_work():
-    st.title("My Work")
-    # Display your work here, e.g., images, descriptions, links, etc.
-    # You can create a grid of images and descriptions for each project
-    project_data = [
-        {"image_path": "project1.jpg", "description": "Project 1 description"},
-        {"image_path": "project2.jpg", "description": "Project 2 description"},
-        # Add more projects as needed
-    ]
-    for project in project_data:
-        image = Image.open(project["image_path"])
-        st.image(image, caption=project["description"], use_column_width=True)
+#def display_work():
+#    st.title("My Work")
+#    # Display your work here, e.g., images, descriptions, links, etc.
+#    # You can create a grid of images and descriptions for each project
+#    project_data = [
+#        {"image_path": "project1.jpg", "description": "Project 1 description"},
+#        {"image_path": "project2.jpg", "description": "Project 2 description"},
+#        # Add more projects as needed
+#    ]
+#    for project in project_data:
+#        image = Image.open(project["image_path"])
+#        st.image(image, caption=project["description"], use_column_width=True)
 
 # Main app
 def main():
     st.set_page_config(page_title="My Portfolio App", layout="wide")
     
     st.sidebar.title("Navigation")
-    pages = ["Resume", "Work"]
+    pages = ["Resume"]
     choice = st.sidebar.radio("Go to", pages)
     
     if choice == "Resume":
-        pdf_path= 'https://github.com/Akshay-Bhasme/my_profile/blob/main/CV_Akshay_Bhasme.pdf'
         st_display_pdf('CV_Akshay_Bhasme.pdf')
-    elif choice == "Work":
-        display_work()
 
 if __name__ == "__main__":
     main()
 
 
-# In[ ]:
+
 
 
 
