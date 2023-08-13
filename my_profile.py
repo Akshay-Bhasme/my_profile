@@ -9,9 +9,10 @@ from PIL import Image
 import base64
 
 # Function to display the resume
-def st_display_pdf(pdf_file):
+def st_display_pdf(pdf_url):
     st.title("My Resume")
     st.markdown(f"Download [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme.pdf)")
+    st.markdown(f'<iframe src="{pdf_url}" width="100%" height="800px"></iframe>', unsafe_allow_html=True)
     #with open(pdf_file,"rb") as f:
     #    base64_pdf = base64.b64encode(f.read()).decode('utf-8')
     #pdf_display = F'<embed src=”data:application/pdf;base64,{base64_pdf}” width=”700″ height=”1000″ type=”application/pdf”>'
