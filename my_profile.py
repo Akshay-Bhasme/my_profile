@@ -11,7 +11,7 @@ import base64
 # Function to display the resume
 def st_display_pdf(pdf_url):
     st.title("My Resume")
-    st.write(f"Download [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme.pdf)")
+    st.write(f"Download [PDF](https://github.com/Akshay-Bhasme/my_profile/blob/main/CV_Akshay_Bhasme.pdf)")
     
     pdf_data = open(pdf_url, "rb").read()
     st.write(f'<embed src="data:application/pdf;base64,{base64.b64encode(pdf_data).decode("utf-8")}" width="800" height="600" type="application/pdf">')
@@ -43,7 +43,7 @@ def main():
     choice = st.sidebar.radio("Go to", pages)
     
     if choice == "Resume":
-        st_display_pdf('https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme.pdf')
+        st_display_pdf('https://github.com/Akshay-Bhasme/my_profile/blob/main/CV_Akshay_Bhasme.pdf')
 
 if __name__ == "__main__":
     main()
