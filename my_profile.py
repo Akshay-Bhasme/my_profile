@@ -39,7 +39,7 @@ def main():
     
     if choice == "Resume":
         pdf_path= 'https://github.com/Akshay-Bhasme/my_profile/blob/main/CV_Akshay_Bhasme.pdf'
-        st_display_pdf(pdf_path)
+        st_display_pdf('CV_Akshay_Bhasme.pdf')
     elif choice == "Work":
         display_work()
 
