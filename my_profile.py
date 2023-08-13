@@ -43,7 +43,7 @@ def main():
     choice = st.sidebar.radio("Go to", pages)
     
     if choice == "Resume":
-        st_display_pdf('https://github.com/Akshay-Bhasme/my_profile/blob/main/CV_Akshay_Bhasme.pdf')
+        st_display_pdf("https://github.com/Akshay-Bhasme/my_profile/blob/main/CV_Akshay_Bhasme.pdf")
 
 if __name__ == "__main__":
     main()
