@@ -8,19 +8,37 @@ import streamlit as st
 from PIL import Image
 import base64
 import requests
+import fitz 
 import io
+from io import BytesIO
 
+def pdf_github_to_images(pdf_github_url):
+    response = requests.get(pdf_github_url)
+    pdf_bytes = BytesIO(response.content)
+
+    images = []
+    pdf_document = fitz.open(stream=pdf_bytes, filetype="pdf")
+    for page_num in range(pdf_document.page_count):
+        page = pdf_document.load_page(page_num)
+        image = page.get_pixmap(matrix=fitz.Matrix(2, 2))  # Increase the scale factor for larger images
+        pil_image = Image.frombytes("RGB", [image.width, image.height], image.samples)
+        images.append(pil_image)
+    pdf_document.close()
+    return images
+    
 # Function to display the resume
-def st_display_pdf(pdf_url):
+def st_display_pdf(images):
     st.title("My Resume")
     st.markdown(f"Download [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme.pdf)")
+    for i, image in enumerate(images):
+        st.image(image, caption=f"Page {i+1}", use_column_width=True)
     
-    response = requests.get(pdf_url)
-    pdf_data = response.content
-    pdf_b64 = base64.b64encode(pdf_data).decode("utf-8")
+    #response = requests.get(pdf_url)
+    #pdf_data = response.content
+    #pdf_b64 = base64.b64encode(pdf_data).decode("utf-8")
     
     # Use the iframe HTML tag to embed the PDF viewer
-    st.markdown(f'<iframe src="data:application/pdf;base64,{pdf_b64}" width="800" height="600"></iframe>', unsafe_allow_html=True)
+    #st.markdown(f'<iframe src="data:application/pdf;base64,{pdf_b64}" width="800" height="600"></iframe>', unsafe_allow_html=True)
     #with open(pdf_file,"rb") as f:
     #    base64_pdf = base64.b64encode(f.read()).decode('utf-8')
     #pdf_display = F'<embed src=”data:application/pdf;base64,{base64_pdf}” width=”700″ height=”1000″ type=”application/pdf”>'
@@ -49,7 +67,9 @@ def main():
     choice = st.sidebar.radio("Go to", pages)
     
     if choice == "Resume":
-        st_display_pdf("https://github.com/Akshay-Bhasme/my_profile/blob/main/CV_Akshay_Bhasme.pdf")
+        pdf_github_url = "https://github.com/Akshay-Bhasme/my_profile/blob/main/CV_Akshay_Bhasme.pdf"  # Replace with your GitHub PDF URL
+        images = pdf_github_to_images(pdf_github_url)
+        st_display_pdf(images)
 
 if __name__ == "__main__":
     main()
