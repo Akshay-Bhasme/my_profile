@@ -2,3 +2,4 @@ streamlit
 Pillow==8.4.0
 requests
 PyMuPDF
+PyPDF2
