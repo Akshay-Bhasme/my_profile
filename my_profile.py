@@ -6,7 +6,7 @@
 
 import streamlit as st
 from PIL import Image
-from PyPDF2 import PdfFileReader
+from PyPDF2 import PdfReader
 import base64
 import requests
 import fitz 
@@ -18,9 +18,9 @@ def pdf_github_to_images(pdf_github_url):
     pdf_bytes = BytesIO(response.content)
 
     images = []
-    pdf = PdfFileReader(pdf_bytes)
-    for page_num in range(pdf.getNumPages()):
-        page = pdf.getPage(page_num)
+    pdf = PdfReader(pdf_bytes)
+    for page_num in range(len(pdf.pages)):
+        page = pdf.pages[page_num]
         xObject = page['/Resources']['/XObject'].get_object()
         for obj in xObject:
             if xObject[obj]['/Subtype'] == '/Image':
