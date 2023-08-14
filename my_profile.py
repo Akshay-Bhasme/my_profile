@@ -61,7 +61,7 @@ def main():
     choice = st.sidebar.radio("Go to", pages)
     
     if choice == "Resume":
-        pdf_github_url = "https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/CV_Akshay_Bhasme.pdf"  # Replace with your GitHub PDF URL
+        pdf_github_url = "https://github.com/Akshay-Bhasme/my_profile/blob/main/CV_Akshay_Bhasme.pdf"  # Replace with your GitHub PDF URL
         images = pdf_github_to_images(pdf_github_url)
         st_display_pdf(images)
 
