@@ -36,16 +36,7 @@ def st_display_pdf(images,width=400, height=600):
     for i, image in enumerate(images):
         st.image(image, caption=f"Page {i+1}", use_column_width=True)
     st.write(f"Download My Resume here [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme.pdf)")
-    #response = requests.get(pdf_url)
-    #pdf_data = response.content
-    #pdf_b64 = base64.b64encode(pdf_data).decode("utf-8")
-    
-    # Use the iframe HTML tag to embed the PDF viewer
-    #st.markdown(f'<iframe src="data:application/pdf;base64,{pdf_b64}" width="800" height="600"></iframe>', unsafe_allow_html=True)
-    #with open(pdf_file,"rb") as f:
-    #    base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-    #pdf_display = F'<embed src=”data:application/pdf;base64,{base64_pdf}” width=”700″ height=”1000″ type=”application/pdf”>'
-    #st.markdown(pdf_display, unsafe_allow_html=True)
+   
     
 # Function to display your work/projects
 #def display_work():
