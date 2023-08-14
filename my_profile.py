@@ -6,7 +6,6 @@
 
 import streamlit as st
 from PIL import Image
-from PyPDF2 import PdfReader
 import base64
 import requests
 import fitz 
@@ -18,28 +17,25 @@ def pdf_github_to_images(pdf_github_url):
     pdf_bytes = BytesIO(response.content)
 
     images = []
-    pdf = PdfReader(pdf_bytes)
-    for page_num in range(len(pdf.pages)):
-        page = pdf.pages[page_num]
-        xObject = page['/Resources']['/XObject'].get_object()
-        for obj in xObject:
-            if xObject[obj]['/Subtype'] == '/Image':
-                img = xObject[obj]
-                data = img._data
-                img = Image.open(BytesIO(data))
-                images.append(img)
+    pdf_document = fitz.open(stream=pdf_bytes, filetype="pdf")
+    for page_num in range(pdf_document.page_count):
+        page = pdf_document.load_page(page_num)
+        image = page.get_pixmap(matrix=fitz.Matrix(3, 3))  # Increase the scale factor for larger images
+        pil_image = Image.frombytes("RGB", [image.width, image.height], image.samples)
+        images.append(pil_image)
+    pdf_document.close()
     return images
     
 # Function to display the resume
 def st_display_pdf(images,width=400, height=600):
     st.title("Career Snapshot")
-    st.write(f"Download My Resume here [PDF](https://github.com/Akshay-Bhasme/my_profile/blob/main/CV_Akshay_Bhasme.pdf)")
+    st.write(f"Download My Resume here [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme.pdf)")
     st.write(f"Email: akshaybhasme30@gmail.com          ",f"        Mobile No: +91 7972014093")
     st.write(f"GitHub: https://github.com/Akshay-Bhasme ")
     st.write(f"LinkedIn: www.linkedin.com/in/akshaybhasme30 ")
     for i, image in enumerate(images):
         st.image(image, caption=f"Page {i+1}", use_column_width=True)
-    st.write(f"Download My Resume here [PDF](https://github.com/Akshay-Bhasme/my_profile/blob/main/CV_Akshay_Bhasme.pdf)")
+    st.write(f"Download My Resume here [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme.pdf)")
     #response = requests.get(pdf_url)
     #pdf_data = response.content
     #pdf_b64 = base64.b64encode(pdf_data).decode("utf-8")
@@ -74,7 +70,7 @@ def main():
     choice = st.sidebar.radio("Go to", pages)
     
     if choice == "Resume":
-        pdf_github_url = "https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme.pdf"  # Replace with your GitHub PDF URL
+        pdf_github_url = "https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/CV_Akshay_Bhasme.pdf"  # Replace with your GitHub PDF URL
         images = pdf_github_to_images(pdf_github_url)
         st_display_pdf(images)
 
