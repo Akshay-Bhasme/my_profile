@@ -36,30 +36,14 @@ def st_display_pdf(images,width=400, height=600):
     for i, image in enumerate(images):
         st.image(image, caption=f"Page {i+1}", use_column_width=True)
     st.write(f"Download My Resume here [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme.pdf)")
-    #response = requests.get(pdf_url)
-    #pdf_data = response.content
-    #pdf_b64 = base64.b64encode(pdf_data).decode("utf-8")
     
-    # Use the iframe HTML tag to embed the PDF viewer
-    #st.markdown(f'<iframe src="data:application/pdf;base64,{pdf_b64}" width="800" height="600"></iframe>', unsafe_allow_html=True)
-    #with open(pdf_file,"rb") as f:
-    #    base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-    #pdf_display = F'<embed src=”data:application/pdf;base64,{base64_pdf}” width=”700″ height=”1000″ type=”application/pdf”>'
-    #st.markdown(pdf_display, unsafe_allow_html=True)
-    
-# Function to display your work/projects
-#def display_work():
-#    st.title("My Work")
-#    # Display your work here, e.g., images, descriptions, links, etc.
-#    # You can create a grid of images and descriptions for each project
-#    project_data = [
-#        {"image_path": "project1.jpg", "description": "Project 1 description"},
-#        {"image_path": "project2.jpg", "description": "Project 2 description"},
-#        # Add more projects as needed
-#    ]
-#    for project in project_data:
-#        image = Image.open(project["image_path"])
-#        st.image(image, caption=project["description"], use_column_width=True)
+def st_display_certificates(certificates, width=400, height=600):
+    st.title("Courses and Certificates")
+    for i, certificate in enumerate(certificates):
+        st.write(f"## {certificate['course_name']}")
+        st.image(certificate['certificate_image'], caption=f"Certificate for {certificate['course_name']}", use_column_width=True)
+        st.write(f"**Credentials**: {certificate['credentials']}")
+        st.write("---")
 
 # Main app
 def main():
@@ -68,13 +52,38 @@ def main():
     st.sidebar.title("Navigation")
 
     # Display links to different pages
-    pages = ["Resume"]  # Add more pages as needed
+    pages = ["Resume","Courses and Certificates"]  # Add more pages as needed
     choice = st.sidebar.radio("Go to", pages)
 
     if choice == "Resume":
         pdf_github_url = "https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/CV_Akshay_Bhasme.pdf"  # Replace with your GitHub PDF URL
         images = pdf_github_to_images(pdf_github_url)
         st_display_pdf(images)
+
+    elif choice == "Courses and Certificates":
+        certificates = [
+            {
+                "course_name": "Course 1",
+                "certificate_pdf": "URL_TO_PDF",
+                "credentials": "Credential 1"
+            },
+            {
+                "course_name": "Course 2",
+                "certificate_pdf": "URL_TO_PDF",
+                "credentials": "Credential 2"
+            },
+            # Add more courses
+        ]
+        
+        for certificate in certificates:
+            certificate_pdf_url = certificate['certificate_pdf']
+            certificate_images = pdf_github_to_images(certificate_pdf_url)
+            if certificate_images:
+                certificate['certificate_image'] = certificate_images[0]  # Display only the first page as an image
+            else:
+                certificate['certificate_image'] = None
+        
+        st_display_certificates(certificates)
 
 if __name__ == "__main__":
     main()
