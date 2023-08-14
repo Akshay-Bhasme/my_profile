@@ -6,6 +6,7 @@
 
 import streamlit as st
 from PIL import Image
+from PyPDF2 import PdfFileReader
 import base64
 import requests
 import fitz 
@@ -17,13 +18,16 @@ def pdf_github_to_images(pdf_github_url):
     pdf_bytes = BytesIO(response.content)
 
     images = []
-    pdf_document = fitz.open(stream=pdf_bytes, filetype="pdf")
-    for page_num in range(pdf_document.page_count):
-        page = pdf_document.load_page(page_num)
-        image = page.get_pixmap(matrix=fitz.Matrix(3, 3))  # Increase the scale factor for larger images
-        pil_image = Image.frombytes("RGB", [image.width, image.height], image.samples)
-        images.append(pil_image)
-    pdf_document.close()
+    pdf = PdfFileReader(pdf_bytes)
+    for page_num in range(pdf.getNumPages()):
+        page = pdf.getPage(page_num)
+        xObject = page['/Resources']['/XObject'].get_object()
+        for obj in xObject:
+            if xObject[obj]['/Subtype'] == '/Image':
+                img = xObject[obj]
+                data = img._data
+                img = Image.open(BytesIO(data))
+                images.append(img)
     return images
     
 # Function to display the resume
