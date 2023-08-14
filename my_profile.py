@@ -69,22 +69,22 @@ def main():
             },
             {
                 "course_name": "Python (Basic) Certificate",
-                "certificate_pdf": "URL_TO_PDF",
+                "certificate_pdf": "https://github.com/Akshay-Bhasme/my_profile/blob/main/python_basic%20certificate.pdf",
                 "credentials": "https://www.hackerrank.com/certificates/7ff0e9842ae8"
             },
             {
                 "course_name": "SQL (Basic) Certificate",
-                "certificate_pdf": "URL_TO_PDF",
+                "certificate_pdf": "https://github.com/Akshay-Bhasme/my_profile/blob/main/sql_basic%20certificate.pdf",
                 "credentials": "https://www.hackerrank.com/certificates/1aaf4b4e8057"
             },
             {
                 "course_name": "Prompt Engineering for ChatGPT",
-                "certificate_pdf": "URL_TO_PDF",
+                "certificate_pdf": "https://github.com/Akshay-Bhasme/my_profile/blob/main/PrompEngineeringForChatGPT.pdf",
                 "credentials": "https://www.coursera.org/account/accomplishments/certificate/3U8XGSFYA74H"
             },
             {
                 "course_name": "Hands-on Machine Learning with AWS and NVIDIA",
-                "certificate_pdf": "URL_TO_PDF",
+                "certificate_pdf": "https://github.com/Akshay-Bhasme/my_profile/blob/main/HandsOnMachineLearning.pdf",
                 "credentials": "https://www.coursera.org/account/accomplishments/certificate/FYB8KV6CKWZH"
             },
             # Add more courses
