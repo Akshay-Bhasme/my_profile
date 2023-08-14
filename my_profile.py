@@ -63,14 +63,29 @@ def main():
     elif choice == "Courses and Certificates":
         certificates = [
             {
-                "course_name": "Course 1",
-                "certificate_pdf": "URL_TO_PDF",
-                "credentials": "Credential 1"
+                "course_name": "Applied Machine Learning Course",
+                "certificate_pdf": "https://github.com/Akshay-Bhasme/my_profile/blob/main/Applie%20AI.pdf",
+                "credentials": "https://www.appliedaicourse.com/certificate/902eadbdec"
             },
             {
-                "course_name": "Course 2",
+                "course_name": "Python (Basic) Certificate",
                 "certificate_pdf": "URL_TO_PDF",
-                "credentials": "Credential 2"
+                "credentials": "https://www.hackerrank.com/certificates/7ff0e9842ae8"
+            },
+            {
+                "course_name": "SQL (Basic) Certificate",
+                "certificate_pdf": "URL_TO_PDF",
+                "credentials": "https://www.hackerrank.com/certificates/1aaf4b4e8057"
+            },
+            {
+                "course_name": "Prompt Engineering for ChatGPT",
+                "certificate_pdf": "URL_TO_PDF",
+                "credentials": "https://www.coursera.org/account/accomplishments/certificate/3U8XGSFYA74H"
+            },
+            {
+                "course_name": "Hands-on Machine Learning with AWS and NVIDIA",
+                "certificate_pdf": "URL_TO_PDF",
+                "credentials": "https://www.coursera.org/account/accomplishments/certificate/FYB8KV6CKWZH"
             },
             # Add more courses
         ]
