@@ -64,11 +64,13 @@ def st_display_pdf(images,width=400, height=600):
 # Main app
 def main():
     st.set_page_config(page_title="My Portfolio App", layout="wide")
-    
+
     st.sidebar.title("Navigation")
-    pages = ["Resume"]
+
+    # Display links to different pages
+    pages = ["Resume"]  # Add more pages as needed
     choice = st.sidebar.radio("Go to", pages)
-    
+
     if choice == "Resume":
         pdf_github_url = "https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/CV_Akshay_Bhasme.pdf"  # Replace with your GitHub PDF URL
         images = pdf_github_to_images(pdf_github_url)
