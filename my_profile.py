@@ -75,7 +75,7 @@ def main():
 
     # Display links to different pages
     pages = ["Resume","Courses and Certificates"]  # Add more pages as needed
-    choice = st.radio("Go to", pages, key="navigation", class="radio-button")
+    choice = st.radio("Go to", pages, key="navigation")
 
     if choice == "Resume":
         pdf_github_url = "https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/CV_Akshay_Bhasme.pdf"  # Replace with your GitHub PDF URL
