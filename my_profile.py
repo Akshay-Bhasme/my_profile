@@ -49,41 +49,40 @@ def st_display_certificates(certificates, width=400, height=600):
 def main():
     st.set_page_config(page_title="My Portfolio App", layout="wide")
 
-    st.sidebar.title("My Portfolio App")
-
-    st.markdown(
-        """
-        <style>
-        .navigation-option {
-            display: block;
-            padding: 10px 20px;
-            margin: 5px 0;
-            background-color: #f0f0f0;
-            border: 2px solid #333;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-        }
-        .navigation-option:hover {
-            background-color: #ccc;
-        }
-        .selected-option {
+    navigation_html = """
+    <style>
+        .navigation-bar {
+            display: flex;
+            justify-content: center;
             background-color: #333;
-            color: #fff;
+            padding: 10px;
         }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+        .navigation-link {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            padding: 10px;
+        }
+        .navigation-link:hover {
+            background-color: #555;
+        }
+    </style>
+    <div class="navigation-bar">
+        <a class="navigation-link" href="#resume">Resume</a>
+        <a class="navigation-link" href="#courses">Courses and Certificates</a>
+    </div>
+    """
+    st.markdown(navigation_html, unsafe_allow_html=True)
     
     # Display links to different pages
     pages = ["Resume","Courses and Certificates"]  # Add more pages as needed
     choice = st.radio("Go to", pages, key="navigation")
 
-    if choice == "Resume":
-        pdf_github_url = "https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/CV_Akshay_Bhasme.pdf"  # Replace with your GitHub PDF URL
-        images = pdf_github_to_images(pdf_github_url)
-        st_display_pdf(images)
+    # Sections with anchors for navigation
+    st.write("<div id='resume'></div>")
+    pdf_github_url = "https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/CV_Akshay_Bhasme.pdf"
+    images = pdf_github_to_images(pdf_github_url)
+    st_display_pdf(images)
 
     elif choice == "Courses and Certificates":
         certificates = [
