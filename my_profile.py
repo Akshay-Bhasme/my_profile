@@ -54,25 +54,27 @@ def main():
     st.markdown(
         """
         <style>
-        .radio-button label {
-            font-size: 18px;
-            color: #000;  /* Change color as needed */
-            background-color: #fff;  /* Change background color as needed */
-            border: 2px solid #000;  /* Change border color and size as needed */
-            border-radius: 5px;  /* Change border radius as needed */
+        .navigation-option {
+            display: inline-block;
             padding: 10px 20px;
-            margin: 0 5px;
+            margin: 5px;
+            background-color: #f0f0f0;
+            border: 2px solid #333;
+            border-radius: 5px;
             cursor: pointer;
         }
-        .radio-button input:checked + label {
-            background-color: #000;  /* Change background color when selected */
-            color: #fff;  /* Change text color when selected */
+        .navigation-option:hover {
+            background-color: #ccc;
+        }
+        .selected-option {
+            background-color: #333;
+            color: #fff;
         }
         </style>
         """,
         unsafe_allow_html=True
     )
-
+    
     # Display links to different pages
     pages = ["Resume","Courses and Certificates"]  # Add more pages as needed
     choice = st.radio("Go to", pages, key="navigation")
