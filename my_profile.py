@@ -84,8 +84,8 @@ def main():
     images = pdf_github_to_images(pdf_github_url)
     st_display_pdf(images)
 
-    elif choice == "Courses and Certificates":
-        certificates = [
+    st.write("<div id='courses'></div>")
+    certificates = [
             {
                 "course_name": "Applied Machine Learning Course",
                 "certificate_pdf": "https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/Applie%20AI.pdf",
@@ -112,17 +112,17 @@ def main():
                 "credentials": "https://www.coursera.org/account/accomplishments/certificate/FYB8KV6CKWZH"
             },
             # Add more courses
-        ]
+    ]
         
-        for certificate in certificates:
-            certificate_pdf_url = certificate['certificate_pdf']
-            certificate_images = pdf_github_to_images(certificate_pdf_url)
-            if certificate_images:
-                certificate['certificate_image'] = certificate_images[0]  # Display only the first page as an image
-            else:
-                certificate['certificate_image'] = None
+    for certificate in certificates:
+        certificate_pdf_url = certificate['certificate_pdf']
+        certificate_images = pdf_github_to_images(certificate_pdf_url)
+        if certificate_images:
+            certificate['certificate_image'] = certificate_images[0]  # Display only the first page as an image
+        else:
+            certificate['certificate_image'] = None
         
-        st_display_certificates(certificates)
+    st_display_certificates(certificates)
 
 if __name__ == "__main__":
     main()
