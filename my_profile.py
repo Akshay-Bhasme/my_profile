@@ -49,11 +49,11 @@ def st_display_certificates(certificates, width=400, height=600):
 def main():
     st.set_page_config(page_title="My Portfolio App", layout="wide")
 
-    st.title("My Portfolio App")
+    st.sidebar.title("Navigate Through My Profile")
     
     # Display links to different pages horizontally
     pages = ["Resume", "Courses and Certificates"]  # Add more pages as needed
-    choice = st.radio("Go to", pages)
+    choice = st.sidebar.radio("Go to", pages, key="navigation")
 
     # Sections with anchors for navigation
     if choice == "Resume":
