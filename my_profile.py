@@ -49,11 +49,33 @@ def st_display_certificates(certificates, width=400, height=600):
 def main():
     st.set_page_config(page_title="My Portfolio App", layout="wide")
 
-    st.sidebar.title("Navigation")
+    st.sidebar.title("My Portfolio App")
+
+    st.markdown(
+        """
+        <style>
+        .radio-button label {
+            font-size: 18px;
+            color: #000;  /* Change color as needed */
+            background-color: #fff;  /* Change background color as needed */
+            border: 2px solid #000;  /* Change border color and size as needed */
+            border-radius: 5px;  /* Change border radius as needed */
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .radio-button input:checked + label {
+            background-color: #000;  /* Change background color when selected */
+            color: #fff;  /* Change text color when selected */
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
     # Display links to different pages
     pages = ["Resume","Courses and Certificates"]  # Add more pages as needed
-    choice = st.sidebar.radio("Go to", pages)
+    choice = st.radio("Go to", pages, key="navigation", class="radio-button")
 
     if choice == "Resume":
         pdf_github_url = "https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/CV_Akshay_Bhasme.pdf"  # Replace with your GitHub PDF URL
