@@ -49,43 +49,20 @@ def st_display_certificates(certificates, width=400, height=600):
 def main():
     st.set_page_config(page_title="My Portfolio App", layout="wide")
 
-    navigation_html = """
-    <style>
-        .navigation-bar {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-            padding: 10px;
-        }
-        .navigation-link {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            padding: 10px;
-        }
-        .navigation-link:hover {
-            background-color: #555;
-        }
-    </style>
-    <div class="navigation-bar">
-        <a class="navigation-link" href="#resume">Resume</a>
-        <a class="navigation-link" href="#courses">Courses and Certificates</a>
-    </div>
-    """
-    st.markdown(navigation_html, unsafe_allow_html=True)
+    st.title("My Portfolio App")
     
-    # Display links to different pages
-    pages = ["Resume","Courses and Certificates"]  # Add more pages as needed
-    choice = st.radio("Go to", pages, key="navigation")
+    # Display links to different pages horizontally
+    pages = ["Resume", "Courses and Certificates"]  # Add more pages as needed
+    choice = st.radio("Go to", pages)
 
     # Sections with anchors for navigation
-    st.write("<div id='resume'></div>")
-    pdf_github_url = "https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/CV_Akshay_Bhasme.pdf"
-    images = pdf_github_to_images(pdf_github_url)
-    st_display_pdf(images)
+    if choice == "Resume":
+        pdf_github_url = "https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/CV_Akshay_Bhasme.pdf"
+        images = pdf_github_to_images(pdf_github_url)
+        st_display_pdf(images)
 
-    st.write("<div id='courses'></div>")
-    certificates = [
+    elif choice == "Courses and Certificates":
+        certificates = [
             {
                 "course_name": "Applied Machine Learning Course",
                 "certificate_pdf": "https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/Applie%20AI.pdf",
@@ -112,17 +89,17 @@ def main():
                 "credentials": "https://www.coursera.org/account/accomplishments/certificate/FYB8KV6CKWZH"
             },
             # Add more courses
-    ]
+        ]
         
-    for certificate in certificates:
-        certificate_pdf_url = certificate['certificate_pdf']
-        certificate_images = pdf_github_to_images(certificate_pdf_url)
-        if certificate_images:
-            certificate['certificate_image'] = certificate_images[0]  # Display only the first page as an image
-        else:
-            certificate['certificate_image'] = None
-        
-    st_display_certificates(certificates)
+        for certificate in certificates:
+            certificate_pdf_url = certificate['certificate_pdf']
+            certificate_images = pdf_github_to_images(certificate_pdf_url)
+            if certificate_images:
+                certificate['certificate_image'] = certificate_images[0]  # Display only the first page as an image
+            else:
+                certificate['certificate_image'] = None
+            
+        st_display_certificates(certificates)
 
 if __name__ == "__main__":
     main()
