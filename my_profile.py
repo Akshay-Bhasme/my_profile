@@ -55,13 +55,14 @@ def main():
         """
         <style>
         .navigation-option {
-            display: inline-block;
+            display: block;
             padding: 10px 20px;
-            margin: 5px;
+            margin: 5px 0;
             background-color: #f0f0f0;
             border: 2px solid #333;
             border-radius: 5px;
             cursor: pointer;
+            text-align: center;
         }
         .navigation-option:hover {
             background-color: #ccc;
