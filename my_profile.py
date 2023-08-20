@@ -63,7 +63,7 @@ def st_display_blogs(blogs):
     for i, blog in enumerate(blogs):
         st.write(f"## {blog['title']}")
         st.image(blog['blog_image'], caption=f"Image for {blog['title']}", use_column_width=True)
-        st.write(f"[Read More]({convert_medium_url(blog['read_more_link'])})")
+        st.write(f"[Read More]({blog['read_more_link']})")
 
 # Main app
 def main():
