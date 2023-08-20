@@ -45,6 +45,30 @@ def st_display_certificates(certificates, width=400, height=600):
         st.write(f"**Credentials**: {certificate['credentials']}")
         st.write("---")
 
+# Function to convert Medium blog URL to readable URL
+def convert_medium_url(medium_url):
+    if medium_url.startswith("https://medium.com/"):
+        return "https://medium.com/m/showcase" + medium_url[len("https://medium.com/"):]
+    return medium_url
+
+# Function to fetch blog title and image from Medium URL
+def fetch_medium_blog_info(medium_url):
+    response = requests.get(medium_url)
+    soup = BeautifulSoup(response.text, "html.parser")
+    
+    title = soup.find("h1").get_text()
+    image_url = soup.find("meta", {"property": "og:image"})["content"]
+    
+    return title, image_url
+
+# Function to display blogs
+def st_display_blogs(blogs):
+    st.title("My Blogs on Medium")
+    for i, blog in enumerate(blogs):
+        st.write(f"## {blog['title']}")
+        st.image(blog['blog_image'], caption=f"Image for {blog['title']}", use_column_width=True)
+        iframe_html = f'<iframe src="{convert_medium_url(blog["read_more_link"])}" width="800" height="600"></iframe>'
+        st.markdown(iframe_html, unsafe_allow_html=True)
 # Main app
 def main():
     st.set_page_config(page_title="My Portfolio App", layout="wide")
@@ -52,7 +76,7 @@ def main():
     st.sidebar.title("Navigate Through My Profile")
     
     # Display links to different pages horizontally
-    pages = ["Resume", "Courses and Certificates"]  # Add more pages as needed
+    pages = ["Resume", "Courses and Certificates", "Blogs"]  # Add more pages as needed
     choice = st.sidebar.radio("Go to", pages, key="navigation")
 
     # Sections with anchors for navigation
@@ -100,6 +124,26 @@ def main():
                 certificate['certificate_image'] = None
             
         st_display_certificates(certificates)
+        
+    elif choice == "Blogs":
+        blogs = [
+            {
+                "title": "Title of Blog 1",
+                "read_more_link": "URL of Blog 1 on Medium"
+            },
+            {
+                "title": "Title of Blog 2",
+                "read_more_link": "URL of Blog 2 on Medium"
+            },
+            # Add more blogs
+        ]
+        
+        for blog in blogs:
+            title, image_url = fetch_medium_blog_info(blog['read_more_link'])
+            blog['title'] = title
+            blog['blog_image'] = Image.open(BytesIO(requests.get(image_url).content))
+            
+        st_display_blogs(blogs)
 
 if __name__ == "__main__":
     main()
