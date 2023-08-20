@@ -46,20 +46,15 @@ def st_display_certificates(certificates, width=400, height=600):
         st.write(f"**Credentials**: {certificate['credentials']}")
         st.write("---")
 
-# Function to convert Medium blog URL to readable URL
-def convert_medium_url(medium_url):
-    if medium_url.startswith("https://medium.com/"):
-        return "https://medium.com/m/showcase" + medium_url[len("https://medium.com/"):]
-    return medium_url
+def convert_medium_url(url):
+    return url.replace("https://medium.com", "https://medium.com/@mediumusername")
 
-# Function to fetch blog title and image from Medium URL
-def fetch_medium_blog_info(medium_url):
-    response = requests.get(medium_url)
-    soup = BeautifulSoup(response.text, "html.parser")
-    
-    title = soup.find("h1").get_text()
+# Function to fetch blog information from Medium URL
+def fetch_medium_blog_info(url):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.content, "html.parser")
+    title = soup.find("title").text
     image_url = soup.find("meta", {"property": "og:image"})["content"]
-    
     return title, image_url
 
 # Function to display blogs
@@ -68,8 +63,8 @@ def st_display_blogs(blogs):
     for i, blog in enumerate(blogs):
         st.write(f"## {blog['title']}")
         st.image(blog['blog_image'], caption=f"Image for {blog['title']}", use_column_width=True)
-        iframe_html = f'<iframe src="{convert_medium_url(blog["read_more_link"])}" width="800" height="600"></iframe>'
-        st.markdown(iframe_html, unsafe_allow_html=True)
+        st.write(f"[Read More]({convert_medium_url(blog['read_more_link'])})")
+
 # Main app
 def main():
     st.set_page_config(page_title="My Portfolio App", layout="wide")
@@ -148,7 +143,7 @@ def main():
             # Add more blogs
         ]
         
-        for blog in blogs:
+       for blog in blogs:
             title, image_url = fetch_medium_blog_info(blog['read_more_link'])
             blog['title'] = title
             blog['blog_image'] = Image.open(BytesIO(requests.get(image_url).content))
