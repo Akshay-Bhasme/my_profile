@@ -128,13 +128,22 @@ def main():
     elif choice == "Blogs":
         blogs = [
             {
-                "title": "Title of Blog 1",
-                "read_more_link": "URL of Blog 1 on Medium"
+                "title": "Exploring Emotions with BERT -Transfer Learning: Your Guide to Sentiment Analysis",
+                "read_more_link": "https://medium.com/@akshaybhasme30/exploring-emotions-with-bert-transfer-learning-your-guide-to-sentiment-analysis-6c260f9c1de5"
             },
             {
-                "title": "Title of Blog 2",
-                "read_more_link": "URL of Blog 2 on Medium"
+                "title": "Unleashing the Power of Deep Learning: Exploring LSTM on the Donors Choose Dataset",
+                "read_more_link": "https://medium.com/@akshaybhasme30/unleashing-the-power-of-deep-learning-exploring-lstm-on-the-donors-choose-dataset-771951df6600"
             },
+            {
+                "title": "Principal component analysis (PCA)",
+                "read_more_link": "https://medium.com/@akshaybhasme30/principal-component-analysis-pca-d6de7a53efa7"
+            },
+            {
+                "title": "How to create Jupyter Notebook instance on Google Cloud Platform (GCP)",
+                "read_more_link": "https://medium.com/@akshaybhasme30/how-to-create-jupyter-notebook-instance-on-google-cloud-platform-gcp-3e74061dd869"
+            },
+            
             # Add more blogs
         ]
         
