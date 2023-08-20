@@ -142,8 +142,7 @@ def main():
             
             # Add more blogs
         ]
-        
-       for blog in blogs:
+        for blog in blogs:
             title, image_url = fetch_medium_blog_info(blog['read_more_link'])
             blog['title'] = title
             blog['blog_image'] = Image.open(BytesIO(requests.get(image_url).content))
