@@ -11,6 +11,7 @@ import requests
 import fitz 
 import io
 from io import BytesIO
+from bs4 import BeautifulSoup
 
 def pdf_github_to_images(pdf_github_url):
     response = requests.get(pdf_github_url)
