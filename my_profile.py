@@ -132,6 +132,10 @@ def main():
                 "read_more_link": "https://medium.com/@akshaybhasme30/unleashing-the-power-of-deep-learning-exploring-lstm-on-the-donors-choose-dataset-771951df6600"
             },
             {
+                "title": "Common Mistakes to Avoid in Model Building: Insights from a Data Scientist’s Journey",
+                "read_more_link": "https://medium.com/@akshaybhasme30/common-mistakes-to-avoid-in-model-building-insights-from-a-data-scientists-journey-dc3fbfb70925"
+            },
+            {
                 "title": "Principal component analysis (PCA)",
                 "read_more_link": "https://medium.com/@akshaybhasme30/principal-component-analysis-pca-d6de7a53efa7"
             },
