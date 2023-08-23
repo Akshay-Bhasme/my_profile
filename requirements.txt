@@ -4,5 +4,3 @@ requests
 PyMuPDF
 PyPDF2==3.0.0
 bs4
-libcrypt1
-sudo apt-get install libcrypt1
