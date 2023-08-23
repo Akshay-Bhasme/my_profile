@@ -2,6 +2,7 @@ streamlit
 Pillow==8.4.0
 requests
 PyMuPDF
+pymupdf
 PyPDF2==3.0.0
 bs4
 pdf2image
