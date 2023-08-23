@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 import base64
 import requests
-import fitz 
+import fitz
 import io
 from io import BytesIO
 from bs4 import BeautifulSoup
