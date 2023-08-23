@@ -6,6 +6,7 @@ import requests
 import io
 from io import BytesIO
 from bs4 import BeautifulSoup
+from pdf2image import convert_from_bytes
 
 def pdf_github_to_images(pdf_github_url):
     response = requests.get(pdf_github_url)
