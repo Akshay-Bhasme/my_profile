@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 import streamlit as st
 from PIL import Image
 import base64
@@ -69,53 +63,11 @@ def st_display_blogs(blogs):
 def main():
     st.set_page_config(page_title="My Portfolio App", layout="wide")
 
-    st.markdown(
-        """
-        <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 200px;
-            padding: 20px;
-            background-color: #333;
-            color: white;
-        }
-        .main-content {
-            margin-left: 220px;
-            padding: 20px;
-        }
-        .nav-icon {
-            font-size: 24px;
-            margin-right: 10px;
-        }
-        .nav-link {
-            display: block;
-            color: white;
-            text-decoration: none;
-            margin-bottom: 20px;
-            padding: 10px 0;
-            transition: background-color 0.3s;
-        }
-        .nav-link:hover {
-            background-color: #555;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-
-    st.sidebar.title("Navigation")
-    pages = [
-        {"name": "Resume", "icon": "📄"},
-        {"name": "Courses and Certificates", "icon": "📚"},
-        {"name": "Blogs", "icon": "✍️"},
-    ]
-    choice = st.sidebar.radio("Go to", pages, format_func=lambda page: page['name'])
+    st.sidebar.title("Navigate Through My Profile")
+    
+    # Display links to different pages horizontally
+    pages = ["Resume", "Courses and Certificates", "Blogs"]  # Add more pages as needed
+    choice = st.sidebar.radio("Go to", pages, key="navigation")
 
     # Sections with anchors for navigation
     if choice == "Resume":
