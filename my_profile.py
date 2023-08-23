@@ -11,15 +11,21 @@ def pdf_github_to_images(pdf_github_url):
     response = requests.get(pdf_github_url)
     pdf_bytes = BytesIO(response.content)
 
-    images = []
-    pdf_document = fitz.open(stream=pdf_bytes, filetype="pdf")
-    for page_num in range(pdf_document.page_count):
-        page = pdf_document.load_page(page_num)
-        image = page.get_pixmap(matrix=fitz.Matrix(3, 3))  # Increase the scale factor for larger images
-        pil_image = Image.frombytes("RGB", [image.width, image.height], image.samples)
-        images.append(pil_image)
-    pdf_document.close()
+    images = convert_from_bytes(pdf_bytes)
     return images
+#def pdf_github_to_images(pdf_github_url):
+#    response = requests.get(pdf_github_url)
+#    pdf_bytes = BytesIO(response.content)
+#
+#    images = []
+#   pdf_document = fitz.open(stream=pdf_bytes, filetype="pdf")
+#    for page_num in range(pdf_document.page_count):
+#        page = pdf_document.load_page(page_num)
+#        image = page.get_pixmap(matrix=fitz.Matrix(3, 3))  # Increase the scale factor for larger images
+#        pil_image = Image.frombytes("RGB", [image.width, image.height], image.samples)
+#        images.append(pil_image)
+#    pdf_document.close()
+#    return images
     
 # Function to display the resume
 def st_display_pdf(images,width=400, height=600):
