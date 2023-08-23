@@ -6,4 +6,3 @@ pymupdf
 PyPDF2==3.0.0
 bs4
 pdf2image
-openssl
