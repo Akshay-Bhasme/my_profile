@@ -1,5 +1,3 @@
-upgrade pip
-upgrade pymupdf
 streamlit
 Pillow==8.4.0
 requests
