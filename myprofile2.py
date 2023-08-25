@@ -8,6 +8,57 @@ from io import BytesIO
 from bs4 import BeautifulSoup
 from pdf2image import convert_from_bytes
 
+def pdf_github_to_images(pdf_github_url):
+    response = requests.get(pdf_github_url)
+    pdf_bytes = BytesIO(response.content)
+
+    images = []
+    pdf_document = fitz.open(stream=pdf_bytes, filetype="pdf")
+    for page_num in range(pdf_document.page_count):
+        page = pdf_document.load_page(page_num)
+        image = page.get_pixmap(matrix=fitz.Matrix(3, 3))  # Increase the scale factor for larger images
+        pil_image = Image.frombytes("RGB", [image.width, image.height], image.samples)
+        images.append(pil_image)
+    pdf_document.close()
+    return images
+    
+# Function to display the resume
+def st_display_pdf(images,width=400, height=600):
+    st.title("Career Snapshot")
+    st.write(f"Download My Resume here [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme.pdf)")
+    st.write(f"Email: akshaybhasme30@gmail.com          ",f"        Mobile No: +91 7972014093")
+    st.write(f"GitHub: https://github.com/Akshay-Bhasme ")
+    st.write(f"LinkedIn: www.linkedin.com/in/akshaybhasme30 ")
+    for i, image in enumerate(images):
+        st.image(image, caption=f"Page {i+1}", use_column_width=True)
+    st.write(f"Download My Resume here [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme.pdf)")
+    
+def st_display_certificates(certificates, width=400, height=600):
+    st.title("Courses and Certificates")
+    for i, certificate in enumerate(certificates):
+        st.write(f"## {certificate['course_name']}")
+        st.image(certificate['certificate_image'], caption=f"Certificate for {certificate['course_name']}", use_column_width=True)
+        st.write(f"**Credentials**: {certificate['credentials']}")
+        st.write("---")
+
+def convert_medium_url(url):
+    return url.replace("https://medium.com", "https://medium.com/@mediumusername")
+
+# Function to fetch blog information from Medium URL
+def fetch_medium_blog_info(url):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.content, "html.parser")
+    title = soup.find("title").text
+    image_url = soup.find("meta", {"property": "og:image"})["content"]
+    return title, image_url
+
+# Function to display blogs
+def st_display_blogs(blogs):
+    st.title("My Blogs on Medium")
+    for i, blog in enumerate(blogs):
+        st.write(f"## {blog['title']}")
+        st.image(blog['blog_image'], caption=f"Image for {blog['title']}", use_column_width=True)
+        st.write(f"[Read More]({blog['read_more_link']})")
 
 
 def st_display_intro():
