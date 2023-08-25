@@ -69,7 +69,7 @@ def st_display_intro():
     st.write("Click on the icons below to navigate:")
 
 def st_display_navigation_buttons():
-    col1, col2, col3 = st.beta_columns(3)
+    col1, col2, col3 = st.columns(3)
 
     with col1:
         st.image("https://image.flaticon.com/icons/png/512/135/135760.png", width=100)
