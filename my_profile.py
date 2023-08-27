@@ -128,6 +128,10 @@ def main():
                 "read_more_link": "https://medium.com/@akshaybhasme30/unleashing-the-power-of-deep-learning-exploring-lstm-on-the-donors-choose-dataset-771951df6600"
             },
             {
+                "title": "Exploring Linear Regression-OLS: Clearing Misconceptions Surrounding It",
+                "read_more_link": "https://medium.com/@akshaybhasme30/exploring-linear-regression-ols-clearing-misconceptions-surrounding-it-a5b21fe2c48a"
+            },
+            {
                 "title": "Common Mistakes to Avoid in Model Building: Insights from a Data Scientist’s Journey",
                 "read_more_link": "https://medium.com/@akshaybhasme30/common-mistakes-to-avoid-in-model-building-insights-from-a-data-scientists-journey-dc3fbfb70925"
             },
@@ -139,6 +143,7 @@ def main():
                 "title": "How to create Jupyter Notebook instance on Google Cloud Platform (GCP)",
                 "read_more_link": "https://medium.com/@akshaybhasme30/how-to-create-jupyter-notebook-instance-on-google-cloud-platform-gcp-3e74061dd869"
             },
+            
             
             # Add more blogs
         ]
