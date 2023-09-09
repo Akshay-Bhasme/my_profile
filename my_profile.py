@@ -26,13 +26,13 @@ def pdf_github_to_images(pdf_github_url):
 # Function to display the resume
 def st_display_pdf(images,width=400, height=600):
     st.title("Career Snapshot")
-    st.write(f"Download My Resume here [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV Akshay Bhasme (ML_DL).pdf)")
+    st.write(f"Download My Resume here [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme_ML.pdf)")
     st.write(f"Email: akshaybhasme30@gmail.com          ",f"        Mobile No: +91 7972014093")
     st.write(f"GitHub: https://github.com/Akshay-Bhasme ")
     st.write(f"LinkedIn: www.linkedin.com/in/akshaybhasme30 ")
     for i, image in enumerate(images):
         st.image(image, caption=f"Page {i+1}", use_column_width=True)
-    st.write(f"Download My Resume here [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV Akshay Bhasme (ML_DL).pdf)")
+    st.write(f"Download My Resume here [PDF](https://github.com/Akshay-Bhasme/my_profile/raw/main/CV_Akshay_Bhasme_ML.pdf)")
     
 def st_display_certificates(certificates, width=400, height=600):
     st.title("Courses and Certificates")
@@ -73,7 +73,7 @@ def main():
 
     # Sections with anchors for navigation
     if choice == "Resume":
-        pdf_github_url = "https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/CV Akshay Bhasme (ML_DL).pdf"
+        pdf_github_url = "https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/CV_Akshay_Bhasme_ML.pdf"
         images = pdf_github_to_images(pdf_github_url)
         st_display_pdf(images)
 
