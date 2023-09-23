@@ -61,6 +61,17 @@ def st_display_blogs(blogs):
         st.image(blog['blog_image'], caption=f"Image for {blog['title']}", use_column_width=True)
         st.write(f"[Read More]({blog['read_more_link']})")
 
+def st_display_home():
+    st.image("https://example.com/your-image.jpg", use_column_width=True)
+    st.title("Welcome to My Portfolio")
+    st.write("## About Me")
+    st.write("""Hey, I'm **Akshay**, your friendly Data Scientist. I've got degrees in Automobile Engineering and Operations Management, but what really gets me going is solving puzzles.  
+    From my early days, I've loved unraveling mysteries, and that's exactly how I approach those massive data sets. It's like one giant puzzle waiting for me to solve. My thrill comes from spotting patterns that others might overlook.
+I've been doing this Data Scientist thing for over four years now, working in insurance, software, and media.  
+My special talent is taking complicated stuff and turning it into simple, practical solutions. Welcome to my world of data science, where I make data exciting and easy to understand.""")
+    
+    
+
 # Main app
 def main():
     st.set_page_config(page_title="My Portfolio App", layout="wide",initial_sidebar_state='expanded')
@@ -82,11 +93,13 @@ def main():
     st.sidebar.title("Navigate")
     
     # Display links to different pages horizontally
-    pages = ["Resume", "Courses and Certificates", "Blogs"]  # Add more pages as needed
+    pages = pages = ["About me", "Career Snapshot", "Courses and Certificates", "Blogs"]  # Add more pages as needed
     choice = st.sidebar.radio("Go to", pages, key="navigation")
 
     # Sections with anchors for navigation
-    if choice == "Resume":
+    if choice == "About me":
+        st_display_home()
+    elif choice == "Career Snapshot":
         pdf_github_url = "https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/CV_Akshay_Bhasme_ML.pdf"
         images = pdf_github_to_images(pdf_github_url)
         st_display_pdf(images)
