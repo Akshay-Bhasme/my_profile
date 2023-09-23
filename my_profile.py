@@ -53,8 +53,8 @@ def st_display_blogs(blogs):
         st.write(f"[Read More]({blog['read_more_link']})")
 
 def st_display_home():
-    st.image("https://example.com/your-image.jpg", use_column_width=True)
     st.title("Welcome to My Portfolio")
+    st.image("https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/dp.jpg", use_column_width=None,width= 400 )
     st.write("## About Me")
     st.write("""**Hey, I'm Akshay, a seasoned Data Scientist**.  
     What really gets me going is solving puzzles. From my early days,  I have always enjoyed to solve puzzles, and that's exactly how I approach those massive data sets. It's like one giant puzzle waiting for me to solve. My thrill comes from spotting patterns that others might overlook.
