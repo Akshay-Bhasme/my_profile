@@ -133,8 +133,8 @@ img {vertical-align: middle;}
 </head>
 <body>
 
-<h2>Automatic Slideshow</h2>
-<p>Change image every 2 seconds:</p>
+<h3>Awards and Recognitions</h3>
+<p>GroupM Choreos Awards 2022: Newbie In The Spotlight</p>
 
 <div class="slideshow-container">
 
@@ -157,7 +157,7 @@ img {vertical-align: middle;}
 </div>
 
 <div class="mySlides fade">
-  <div class="numbertext">2 / 3</div>
+  <div class="numbertext">4 / 3</div>
   <img src="https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/IMG-20221212-WA0014.jpg" style="width:100%">
   <div class="text">Caption Two</div>
 </div>
