@@ -55,7 +55,7 @@ def st_display_home():
     st.image("https://example.com/your-image.jpg", use_column_width=True)
     st.title("Welcome to My Portfolio")
     st.write("## About Me")
-    st.write("""**Hey, I'm Akshay**, a seasoned Data Scientist.  
+    st.write("""**Hey, I'm Akshay, a seasoned Data Scientist**.  
     What really gets me going is solving puzzles. From my early days,  I have always enjoyed to solve puzzles, and that's exactly how I approach those massive data sets. It's like one giant puzzle waiting for me to solve. My thrill comes from spotting patterns that others might overlook.
 I've been doing this Data Scientist thing for over five years now, working in insurance, software, and media domain. My special talent is taking complicated stuff and turning it into simple, practical solutions with great user experience.  
 Welcome to my area of expertise : Data Science and ML solutions.""")
