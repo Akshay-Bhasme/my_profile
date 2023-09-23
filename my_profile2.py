@@ -66,33 +66,19 @@ def st_display_home():
     st.title("Welcome to My Portfolio")
     st.write("## About Me")
     st.write("""Hey, I'm Akshay, your friendly Data Scientist. I've got degrees in Automobile Engineering and Operations Management, but what really gets me going is solving puzzles.
-
-From my early days, I've loved unraveling mysteries, and that's exactly how I approach those massive data sets. It's like one giant puzzle waiting for me to solve. My thrill comes from spotting patterns that others might overlook.
-
+    From my early days, I've loved unraveling mysteries, and that's exactly how I approach those massive data sets. It's like one giant puzzle waiting for me to solve. My thrill comes from spotting patterns that others might overlook.
 I've been doing this Data Scientist thing for over four years now, working in insurance, software, and media. My special talent is taking complicated stuff and turning it into simple, practical solutions.
-
 Welcome to my world of data science, where I make data exciting and easy to understand.""")
     st.write("You can explore my resume, certificates, and blogs here.")
-    # Add buttons to navigate to other pages in a single row
-    st.write(
-        """
-        <style>
-        .button-row {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-        </style>
-        <div class="button-row">
-        """
-    )
-
     pages = ["Resume", "Courses and Certificates", "Blogs"]
-    for page in pages:
-        button_html = f'<a href="#{page}" style="text-decoration: none;"><button>{page}</button></a>'
-        st.write(button_html, unsafe_allow_html=True)
-
-    st.write("</div>")
+    page_choice = st.selectbox("Go to", pages)
+    
+    if page_choice == "Resume":
+        st.sidebar.radio("Go to", pages, index=0)
+    elif page_choice == "Courses and Certificates":
+        st.sidebar.radio("Go to", pages, index=1)
+    elif page_choice == "Blogs":
+        st.sidebar.radio("Go to", pages, index=2)
     
 
 # Main app
