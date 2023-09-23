@@ -102,11 +102,13 @@ def main():
     st.sidebar.title("Navigate Through My Profile")
     
     # Display links to different pages horizontally
-    pages = ["Resume", "Courses and Certificates", "Blogs"]  # Add more pages as needed
+    pages = ["Home", "Resume", "Courses and Certificates", "Blogs"]  # Add more pages as needed
     choice = st.sidebar.radio("Go to", pages, key="navigation")
 
     # Sections with anchors for navigation
-    if choice == "Resume":
+    if choice == "Home":
+        st_display_home()
+    elif choice == "Resume":
         pdf_github_url = "https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/CV_Akshay_Bhasme_ML.pdf"
         images = pdf_github_to_images(pdf_github_url)
         st_display_pdf(images)
