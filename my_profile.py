@@ -65,7 +65,7 @@ def st_display_blogs(blogs):
 def main():
     st.set_page_config(page_title="My Portfolio App", layout="wide",initial_sidebar_state='expanded')
 
-    st.sidebar.title("Navigate Through My Profile")
+    st.sidebar.title("Navigate")
     
     # Display links to different pages horizontally
     pages = ["Resume", "Courses and Certificates", "Blogs"]  # Add more pages as needed
