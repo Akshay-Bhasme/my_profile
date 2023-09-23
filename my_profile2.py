@@ -43,8 +43,8 @@ def st_display_certificates(certificates, width=400, height=600):
         st.write(f"**Credentials**: {certificate['credentials']}")
         st.write("---")
 
-def convert_medium_url(url):
-    return url.replace("https://medium.com", "https://medium.com/@mediumusername")
+#def convert_medium_url(url):
+#    return url.replace("https://medium.com", "https://medium.com/@mediumusername")
 
 # Function to fetch blog information from Medium URL
 #def fetch_medium_blog_info(url):
