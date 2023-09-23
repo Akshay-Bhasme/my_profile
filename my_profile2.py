@@ -47,12 +47,12 @@ def convert_medium_url(url):
     return url.replace("https://medium.com", "https://medium.com/@mediumusername")
 
 # Function to fetch blog information from Medium URL
-def fetch_medium_blog_info(url):
-    response = requests.get(url)
-    soup = BeautifulSoup(response.content, "html.parser")
-    title = soup.find("title").text
-    image_url = soup.find("meta", {"property": "og:image"})["content"]
-    return title, image_url
+#def fetch_medium_blog_info(url):
+#    response = requests.get(url)
+#    soup = BeautifulSoup(response.content, "html.parser")
+#    title = soup.find("title").text
+#    image_url = soup.find("meta", {"property": "og:image"})["content"]
+#    return title, image_url
 
 # Function to display blogs
 def st_display_blogs(blogs):
@@ -136,36 +136,38 @@ def main():
         blogs = [
             {
                 "title": "Exploring Emotions with BERT -Transfer Learning: Your Guide to Sentiment Analysis",
-                "read_more_link": "https://medium.com/@akshaybhasme30/exploring-emotions-with-bert-transfer-learning-your-guide-to-sentiment-analysis-6c260f9c1de5"
+                "read_more_link": "https://medium.com/@akshaybhasme30/exploring-emotions-with-bert-transfer-learning-your-guide-to-sentiment-analysis-6c260f9c1de5",
+                "blog_image": "https://github.com/Akshay-Bhasme/my_profile/blob/main/blog_images/Exploring%20emotions.jpeg"
             },
             {
                 "title": "Unleashing the Power of Deep Learning: Exploring LSTM on the Donors Choose Dataset",
-                "read_more_link": "https://medium.com/@akshaybhasme30/unleashing-the-power-of-deep-learning-exploring-lstm-on-the-donors-choose-dataset-771951df6600"
+                "read_more_link": "https://medium.com/@akshaybhasme30/unleashing-the-power-of-deep-learning-exploring-lstm-on-the-donors-choose-dataset-771951df6600",
+                "blog_image":"https://github.com/Akshay-Bhasme/my_profile/blob/main/blog_images/unleashing%20the%20power.jpeg"
             },
             {
                 "title": "Exploring Linear Regression-OLS: Clearing Misconceptions Surrounding It",
-                "read_more_link": "https://medium.com/@akshaybhasme30/exploring-linear-regression-ols-clearing-misconceptions-surrounding-it-a5b21fe2c48a"
+                "read_more_link": "https://medium.com/@akshaybhasme30/exploring-linear-regression-ols-clearing-misconceptions-surrounding-it-a5b21fe2c48a",
+                "blog_image": "https://github.com/Akshay-Bhasme/my_profile/blob/main/blog_images/exploring%20linear%20reg.jpeg"
             },
             {
                 "title": "Common Mistakes to Avoid in Model Building: Insights from a Data Scientist’s Journey",
-                "read_more_link": "https://medium.com/@akshaybhasme30/common-mistakes-to-avoid-in-model-building-insights-from-a-data-scientists-journey-dc3fbfb70925"
+                "read_more_link": "https://medium.com/@akshaybhasme30/common-mistakes-to-avoid-in-model-building-insights-from-a-data-scientists-journey-dc3fbfb70925",
+                "blog_image":"https://github.com/Akshay-Bhasme/my_profile/blob/main/blog_images/common%20mistakes.jpeg"
             },
             {
                 "title": "Principal component analysis (PCA)",
-                "read_more_link": "https://medium.com/@akshaybhasme30/principal-component-analysis-pca-d6de7a53efa7"
+                "read_more_link": "https://medium.com/@akshaybhasme30/principal-component-analysis-pca-d6de7a53efa7",
+                "blog_image":"https://github.com/Akshay-Bhasme/my_profile/blob/main/blog_images/pca.png"
             },
             {
                 "title": "How to create Jupyter Notebook instance on Google Cloud Platform (GCP)",
-                "read_more_link": "https://medium.com/@akshaybhasme30/how-to-create-jupyter-notebook-instance-on-google-cloud-platform-gcp-3e74061dd869"
+                "read_more_link": "https://medium.com/@akshaybhasme30/how-to-create-jupyter-notebook-instance-on-google-cloud-platform-gcp-3e74061dd869",
+                "blog_image":"https://github.com/Akshay-Bhasme/my_profile/blob/main/blog_images/gcp.jpeg"
             },
             
             
             # Add more blogs
         ]
-        for blog in blogs:
-            title, image_url = fetch_medium_blog_info(blog['read_more_link'])
-            blog['title'] = title
-            blog['blog_image'] = Image.open(BytesIO(requests.get(image_url).content))
             
         st_display_blogs(blogs)
 
