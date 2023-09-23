@@ -64,16 +64,7 @@ def st_display_blogs(blogs):
 # Main app
 def main():
     st.set_page_config(page_title="My Portfolio App", layout="wide",initial_sidebar_state='expanded')
-    st.markdown(
-    """
-    <style>
-        section[data-testid="stSidebar"] {
-            width: 200px !important; # Set the width to your desired value
-        }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+    
     st.sidebar.title("Navigate")
     
     
