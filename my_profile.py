@@ -48,7 +48,7 @@ def st_display_blogs(blogs):
     st.title("My Blogs on Medium")
     for i, blog in enumerate(blogs):
         st.write(f"## {blog['title']}")
-        st.image(blog['blog_image'], caption=f"Image for {blog['title']}", use_column_width=True)
+        st.image(blog['blog_image'], caption=f"Image for {blog['title']}", use_column_width=None, width= 500)
         st.write(f"[Read More]({blog['read_more_link']})")
 
 def st_display_home():
