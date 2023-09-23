@@ -90,7 +90,7 @@ img {vertical-align: middle;}
   text-align: center;
 }
 
-/* Number text (1/3 etc) */
+/* Number text (1/4 etc) */
 .numbertext {
   color: #f2f2f2;
   font-size: 12px;
@@ -117,7 +117,7 @@ img {vertical-align: middle;}
 /* Fading animation */
 .fade {
   animation-name: fade;
-  animation-duration: 1.5s;
+  animation-duration: 2s;
 }
 
 @keyframes fade {
@@ -141,25 +141,25 @@ img {vertical-align: middle;}
 <div class="mySlides fade">
   <div class="numbertext">1 / 3</div>
   <img src="https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/EE2A4181.jpg" style="width:100%">
-  <div class="text">Caption Text</div>
+  <div class="text">Choreos'22 Newbie In The Spotlight</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">2 / 3</div>
   <img src="https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/EE2A4658.jpg" style="width:100%">
-  <div class="text">Caption Two</div>
+  <div class="text">Choreos'22 Newbie In The Spotlight</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">3 / 3</div>
   <img src="https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/Picsart_23-09-23_16-30-31-629.jpg" style="width:100%">
-  <div class="text">Caption Three</div>
+  <div class="text">Choreos'22 Newbie In The Spotlight</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">4 / 3</div>
   <img src="https://raw.githubusercontent.com/Akshay-Bhasme/my_profile/main/IMG-20221212-WA0014.jpg" style="width:100%">
-  <div class="text">Caption Two</div>
+  <div class="text">Choreos'22 Newbie In The Spotlight</div>
 </div>
 
 </div>
