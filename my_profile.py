@@ -64,13 +64,22 @@ def st_display_blogs(blogs):
 # Main app
 def main():
     st.set_page_config(page_title="My Portfolio App", layout="wide",initial_sidebar_state='expanded')
-    st.markdown(f'''
+    st.markdown(
+    """
     <style>
-    section[data-testid="stSidebar"] .css-ng1t4o {{width: 5rem;}}
+    [data-testid="stSidebar"][aria-expanded="true"] > div:first-child {
+        width: 500px;
+    }
+    [data-testid="stSidebar"][aria-expanded="false"] > div:first-child {
+        width: 500px;
+        margin-left: -500px;
+    }
     </style>
-''',unsafe_allow_html=True)
-    st.sidebar.title("Navigate")
+    """,
+    unsafe_allow_html=True,
+)
     
+    st.sidebar.title("Navigate")
     
     # Display links to different pages horizontally
     pages = ["Resume", "Courses and Certificates", "Blogs"]  # Add more pages as needed
