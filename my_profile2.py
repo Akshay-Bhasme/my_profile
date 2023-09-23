@@ -76,7 +76,7 @@ My special talent is taking complicated stuff and turning it into simple, practi
 # Main app
 def main():
     
-    st.set_page_config(page_title="My Portfolio App", layout="wide")
+    st.set_page_config(page_title="My Portfolio App", layout="wide",initial_sidebar_state='expanded')
 
     st.sidebar.title("Navigate Through My Profile")
     
