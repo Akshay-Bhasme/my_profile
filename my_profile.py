@@ -39,7 +39,7 @@ def st_display_certificates(certificates, width=400, height=600):
     st.title("Courses and Certificates")
     for i, certificate in enumerate(certificates):
         st.write(f"## {certificate['course_name']}")
-        st.image(certificate['certificate_image'], caption=f"Certificate for {certificate['course_name']}", use_column_width=None, width= 500)
+        st.image(certificate['certificate_image'], caption=f"Certificate for {certificate['course_name']}", use_column_width=None, width= 300)
         st.write(f"**Credentials**: {certificate['credentials']}")
         st.write("---")
 
@@ -49,7 +49,7 @@ def st_display_blogs(blogs):
     st.title("My Blogs on Medium")
     for i, blog in enumerate(blogs):
         st.write(f"## {blog['title']}")
-        st.image(blog['blog_image'], caption=f"Image for {blog['title']}", use_column_width=None, width= 500)
+        st.image(blog['blog_image'], caption=f"Image for {blog['title']}", use_column_width=None, width= 300)
         st.write(f"[Read More]({blog['read_more_link']})")
 
 def st_display_home():
