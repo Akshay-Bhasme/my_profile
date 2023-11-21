@@ -39,7 +39,7 @@ def st_display_certificates(certificates, width=400, height=600):
     st.title("Courses and Certificates")
     for i, certificate in enumerate(certificates):
         st.write(f"## {certificate['course_name']}")
-        st.image(certificate['certificate_image'], caption=f"Certificate for {certificate['course_name']}", use_column_width=None, width= 300)
+        st.image(certificate['certificate_image'], caption=f"Certificate for {certificate['course_name']}", use_column_width=None, width= 400)
         st.write(f"**Credentials**: {certificate['credentials']}")
         st.write("---")
 
