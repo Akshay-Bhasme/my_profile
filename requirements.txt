@@ -8,3 +8,4 @@ bs4
 pdf2image
 streamlit_pages
 protobuf~=3.19.0
+numpy==1.26.4
