@@ -7,3 +7,4 @@ PyPDF2==3.0.0
 bs4
 pdf2image
 streamlit_pages
+protobuf~=3.19.0
