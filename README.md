@@ -4,7 +4,7 @@
 
 Welcome to the GitHub repository for my professional profile showcase app! This Streamlit-based application serves as an interactive platform to present my resume, accomplishments, expertise, and more in an elegant and user-friendly manner.
 
-## App Features
+## App Features ##
 
 - **Resume Presentation:** This app provides an intuitive way to display my resume, making it easy for viewers to explore my professional background, education, work experience, and skills.
 

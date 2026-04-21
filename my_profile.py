@@ -60,7 +60,7 @@ CERTIFICATES = [
     "certificate_image": BASE_DIR / "cert_images" / "aws.jpeg",
   },
 ]
-
+# For the blogs, you can add more entries to the BLOGS list as needed.
 BLOGS = [
   {
     "title": "Exploring Emotions with BERT -Transfer Learning: Your Guide to Sentiment Analysis",
