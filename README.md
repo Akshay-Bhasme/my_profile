@@ -4,7 +4,7 @@
 
 Welcome to the GitHub repository for my professional profile showcase app! This Streamlit-based application serves as an interactive platform to present my resume, accomplishments, expertise, and more in an elegant and user-friendly manner.
 
-## App Features
+## App Features ##
 
 - **Resume Presentation:** This app provides an intuitive way to display my resume, making it easy for viewers to explore my professional background, education, work experience, and skills.
 
@@ -23,3 +23,14 @@ Your feedback is valuable to me! If you have any suggestions, ideas, or issues r
 You can reach out to me via email at [akshaybhasme30@gmail.com](mailto:akshaybhasme30@gmail.com) or connect with me on [LinkedIn](https://www.linkedin.com/in/akshaybhasme30/).
 
 Thank you for visiting my profile showcase app repository. I hope you find it informative and engaging!
+
+## Run Locally
+
+Create or activate a virtual environment, install the requirements, and start Streamlit:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+streamlit run my_profile.py
+```
